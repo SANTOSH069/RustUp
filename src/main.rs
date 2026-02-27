@@ -1,9 +1,10 @@
 mod sum;
 mod lapi;
+mod intsecarr;
+mod isomorph;
+use std::io;
 
-use std::{io, thread::current};
-
-fn add_num(a: i32, b: i32) -> i32 {
+fn add_num(a: i32,  b: i32) -> i32 {
     a + b
 }
 
