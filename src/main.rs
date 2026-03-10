@@ -3,6 +3,7 @@ mod lapi;
 mod intsecarr;
 mod isomorph;
 mod ispalin;
+mod valippairs;
 use std::io;
 
 fn add_num(a: i32,  b: i32) -> i32 {
