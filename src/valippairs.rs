@@ -2,7 +2,7 @@ use std::{collections::HashMap, io};
 
 fn main(){
     let mut inp: String = String::new();
-    let mut n:i32;
+    // let mut n:i32;
 
     io::stdin()
         .read_line(&mut inp)
