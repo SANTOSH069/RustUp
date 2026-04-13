@@ -6,7 +6,7 @@ mod ispalin;
 mod valippairs;
 mod intarr;
 
-use std::{collections::HashMap, io};
+use std::{collections::HashMap, hash::Hash, io, usize};
 
 fn add_num(a: i32,  b: i32) -> i32 {
     a + b
@@ -155,6 +155,20 @@ impl Solution {
             }
         }
         if min_distance == i32::MAX { -1 } else { min_distance }
+    }
+
+    pub fn maj_ele(_nums: &mut Vec<i32>) -> i32 {
+        let mut hash: HashMap<i32, i32>  = HashMap::new();
+        let n: i32  = _nums.len() as i32;
+        for &num in _nums.iter() {
+            let count = hash.entry(num).or_insert(0);
+            *count += 1;
+
+            if *count > (n / 2) {
+                return num;
+            }
+        }
+        -1
     }
 }
 
