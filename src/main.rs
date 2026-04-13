@@ -125,7 +125,7 @@ fn main() {
     let target: i32;
 
     let mut res: Vec<i32> = Solution::two_sum(nums, target);
-    println!("{:?}",res);
+    println!("{:?}",res); 
 }
 
 
