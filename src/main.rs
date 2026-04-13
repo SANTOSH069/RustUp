@@ -6,7 +6,7 @@ mod ispalin;
 mod valippairs;
 mod intarr;
 
-use std::io;
+use std::{collections::HashMap, io};
 
 fn add_num(a: i32,  b: i32) -> i32 {
     a + b
@@ -120,5 +120,29 @@ fn main() {
 
     for i in stack {
         println!("{}", i);
+    }
+    let mut nums: Vec<i32>;
+    let target: i32;
+
+    let mut res: Vec<i32> = Solution::two_sum(nums, target);
+    println!("{:?}",res);
+}
+
+
+struct Solution{
+
+}
+
+impl Solution {
+    fn two_sum(_data: &mut Vec<i32>, target: i32) -> Vec<i32>{
+        let mut map: HashMap<i32, i32> = HashMap::new();
+        for (idx, val) in _data.iter().enumerate(){
+            let complement = target - val;
+            if let Some(&complement_idx) = map.get(&complement) {
+                return vec![complement_idx as i32, idx as i32];
+            }
+            map.insert(*val, idx as i32);
+        }
+        vec![]
     }
 }
