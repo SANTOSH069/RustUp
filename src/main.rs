@@ -124,7 +124,7 @@ fn main() {
     let mut nums: Vec<i32>;
     let target: i32;
 
-    let mut res: Vec<i32> = Solution::two_sum(_nums, target);
+    // let mut res: Vec<i32> = Solution::two_sum(_nums, target);
     println!("{:?}",res); 
 }
     
@@ -183,6 +183,36 @@ impl Solution {
             }
         }
         return max_ones;
+    }
+
+    pub fn med_arr(nums: &Vec<i32>, left: usize, right: usize) -> i32 {
+        let mut sl = nums[left..=right].to_vec();
+        sl.sort();
+
+        let len = sl.len();
+        if len == 0 {
+            return 0;
+        }
+
+        if len % 2 == 1 {
+            sl[len / 2]
+        } else {
+            (sl[len / 2 - 1] + sl[len / 2]) / 2
+        }
+    }
+
+    pub fn sub_med(nums: &mut Vec<i32>, k: i32) -> i32 {
+        let mut count = 0;
+
+        for left in 0..nums.len() {
+            for right in left..nums.len() {
+                if Self::med_arr(nums, left, right) == k {
+                    count += 1;
+                }
+            }
+        }
+
+        count
     }
 }
 
