@@ -127,14 +127,14 @@ fn main() {
     let mut res: Vec<i32> = Solution::two_sum(nums, target);
     println!("{:?}",res); 
 }
-
+    
 
 struct Solution{
 
 }
 
 impl Solution {
-    fn two_sum(_data: &mut Vec<i32>, target: i32) -> Vec<i32>{
+    pub fn two_sum(_data: &mut Vec<i32>, target: i32) -> Vec<i32>{
         let mut map: HashMap<i32, i32> = HashMap::new();
         for (idx, val) in _data.iter().enumerate(){
             let complement = target - val;
@@ -145,4 +145,18 @@ impl Solution {
         }
         vec![]
     }
+
+    pub fn get_min_distance(_nums: &mut Vec<i32>, _target: i32, start: i32) -> i32 {
+        let mut min_distance = i32::MAX;
+        for (i, &num) in _nums.iter().enumerate() {
+            if num == _target {
+                let distance = (i as i32 - start).abs();
+                min_distance = min_distance.min(distance);
+            }
+        }
+        if min_distance == i32::MAX { -1 } else { min_distance }
+    }
 }
+
+
+
