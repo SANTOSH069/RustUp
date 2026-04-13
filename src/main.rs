@@ -6,7 +6,7 @@ mod ispalin;
 mod valippairs;
 mod intarr;
 
-use std::{collections::HashMap, hash::Hash, io, usize};
+use std::{collections::HashMap, io,};
 
 fn add_num(a: i32,  b: i32) -> i32 {
     a + b
@@ -124,7 +124,7 @@ fn main() {
     let mut nums: Vec<i32>;
     let target: i32;
 
-    let mut res: Vec<i32> = Solution::two_sum(nums, target);
+    let mut res: Vec<i32> = Solution::two_sum(_nums, target);
     println!("{:?}",res); 
 }
     
@@ -169,6 +169,20 @@ impl Solution {
             }
         }
         -1
+    }
+
+    pub fn max_ones(ones: Vec<i32>) -> i32 {
+        let mut curr_ones: i32 = 0;
+        let mut max_ones: i32 = i32::MAX; 
+        for num in 0..ones.len() {
+            if num as i32 == 1 {
+                curr_ones += 1;
+            }else {
+                max_ones = std::cmp::max(max_ones, curr_ones);
+                curr_ones = 0;
+            }
+        }
+        return max_ones;
     }
 }
 
