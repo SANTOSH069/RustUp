@@ -214,6 +214,28 @@ impl Solution {
 
         count
     }
+
+    pub fn can_be_equal(s1: String, s2: String) -> bool {
+        let mut can_equal:bool = true;
+        let mut s1_chars:Vec<char> = s1.chars().collect();
+        let s2_chars:Vec<char> = s2.chars().collect();
+        for i in 0..s1_chars.len(){
+            for j in 1..s1_chars.len(){
+                if j - i == 2 {
+                    s1_chars.swap(s1_chars[i], s2_chars[j]); 
+                    if is_equal(s1,s2) {
+                        return can_equal;
+                    }                 
+                }
+            }
+        }
+        can_equal = false;
+        can_equal
+    }
+
+    pub fn is_equal(s1:Vec<char>, s2:Vec<char>)->bool {
+        s1 == s2
+    }
 }
 
 
