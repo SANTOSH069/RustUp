@@ -6,7 +6,7 @@ mod ispalin;
 mod valippairs;
 mod intarr;
 
-use std::{collections::HashMap, io,};
+use std::{collections::HashMap, io, path::absolute,};
 
 fn add_num(a: i32,  b: i32) -> i32 {
     a + b
@@ -235,6 +235,19 @@ impl Solution {
 
     pub fn is_equal(s1:Vec<char>, s2:Vec<char>)->bool {
         s1 == s2
+    }
+
+    pub fn mirr_num(num:i32)->i32 {
+        let mut rev:i32 = 0;
+        let mut temp:i32 = num;
+        while temp > 0 {
+            rev = rev*10 + (temp %10);
+            temp /=10;
+        }
+        let diff:i32 = rev - num;
+        let res:i32 = diff.abs();
+        
+        res
     }
 }
 
