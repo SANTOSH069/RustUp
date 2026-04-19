@@ -5,6 +5,7 @@ mod isomorph;
 mod ispalin;
 mod valippairs;
 mod intarr;
+mod first_index;
 
 use std::{collections::HashMap, io, path::absolute,};
 
@@ -249,6 +250,7 @@ impl Solution {
         
         res
     }
+
 }
 
 
