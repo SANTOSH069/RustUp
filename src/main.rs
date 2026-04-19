@@ -6,6 +6,7 @@ mod ispalin;
 mod valippairs;
 mod intarr;
 mod first_index;
+mod mindel;
 
 use std::{collections::HashMap, io, path::absolute,};
 
